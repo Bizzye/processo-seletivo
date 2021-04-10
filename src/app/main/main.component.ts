@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
   
-  countDownDate = new Date("Nov 26, 2021 23:39:59").getTime();
+  countDownDate = new Date("Nov 26, 2021 23:59:59").getTime();
   
   constructor() { }
 

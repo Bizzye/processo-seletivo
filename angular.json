@@ -121,8 +121,13 @@
               "devServerTarget": "processo-seletivo:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "processo-seletivo"
 }
