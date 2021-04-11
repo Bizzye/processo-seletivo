@@ -13,7 +13,7 @@ img{
     width: 58.49vw;
 }
 
-.countdown{
+.contagem-regressiva{
     position: absolute;
     bottom: 11%;
     left: 19.5%;
@@ -22,15 +22,15 @@ img{
     align-items: flex-start;
 }
 
-.column{
+.coluna{
     display: flex;
-    flex-direction: column;
+    flex-direction: coluna;
     align-items: center;
     margin-right: 0.5vw;
     margin-top: 3%;
 }
 
-.timer{
+.tempo{
     font-style: italic;
     font-size: 3.2vw;
     font-weight: 900;
@@ -51,7 +51,7 @@ img{
     font-weight: 1000;
 }
 
-.divider{
+.divisor{
     font-size: 3vw;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -61,7 +61,7 @@ img{
 }
 
 @media only screen and (max-width: 1490px){
-    .timer{
+    .tempo{
         margin-bottom: 0;
     }
 
@@ -80,11 +80,11 @@ img{
         width: 100%;
     }
 
-    .timer{
+    .tempo{
         margin-bottom: 0;
         font-size: 5.2vw;
     }
-    .countdown{
+    .contagem-regressiva{
         bottom: 12%;
         left: 20.5%;
     }
@@ -92,17 +92,17 @@ img{
         margin-bottom: 1%;
         font-size: 1vw;
     }
-    .column{
+    .coluna{
         margin-top: 3%;
     }
-    .divider{
+    .divisor{
         font-size: 5.2vw;
     }
 }
 
 
 @media only screen and (max-width: 500px){
-    .column{
+    .coluna{
         margin-top: 4%;
     }
 
