@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  demo:any;
+  tempo:any;
 
   x = setInterval(() => {
 
@@ -29,11 +29,11 @@ export class MainComponent implements OnInit {
     let minutos = Math.floor((restante % (1000 * 60 * 60)) / (1000 * 60));
     let segundos = Math.floor((restante % (1000 * 60)) / 1000);
       
-    this.demo = { dias, horas, minutos, segundos };
+    this.tempo = { dias, horas, minutos, segundos };
       
    if (restante < 0) {
       clearInterval(this.x);
-      this.demo = "EXPIROU";
+      this.tempo = "EXPIROU";
     }
   }, 1000);
 }
