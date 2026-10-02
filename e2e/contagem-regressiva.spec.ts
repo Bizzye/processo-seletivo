@@ -12,6 +12,9 @@ test.describe('Contagem regressiva da Black Friday', () => {
 
     await expect(page).toHaveTitle(/Black Friday/);
     await expect(page.getByRole('img', { name: /Black Friday/ })).toBeVisible();
+    await expect
+      .poll(() => page.getByRole('img').evaluate((img: HTMLImageElement) => img.currentSrc))
+      .toMatch(/black-friday\.avif$/);
     await expect(page.locator('.valor')).toHaveText(['26', '11', '59', '59']);
     await expect(page.locator('.rotulo')).toHaveText(['Dias', 'Horas', 'Minutos', 'Segundos']);
     await expect(page.getByRole('timer')).toHaveAttribute(

@@ -48,13 +48,16 @@ describe('ContagemRegressiva', () => {
     jasmine.clock().uninstall();
   });
 
-  it('exibe a arte da campanha com texto alternativo e dimensões fixas', () => {
+  it('exibe a arte da campanha em AVIF com fallback, texto alternativo e dimensões fixas', () => {
     criar();
     const imagem = elemento.querySelector('img')!;
 
     expect(imagem.getAttribute('alt')).toContain('Black Friday');
     expect(imagem.getAttribute('width')).toBe('1080');
     expect(imagem.getAttribute('height')).toBe('720');
+    expect(
+      elemento.querySelector('picture source[type="image/avif"]')?.getAttribute('srcset'),
+    ).toBe('images/black-friday.avif');
   });
 
   it('exibe as quatro unidades com dois dígitos', () => {
