@@ -34,7 +34,6 @@ testes automatizados, CI/CD e hardening de segurança.
 - [CI/CD](#-cicd)
 - [Segurança](#-segurança)
 - [Como rodar](#-como-rodar)
-- [Code review](#-code-review)
 
 ## 🎯 O desafio
 
@@ -193,14 +192,6 @@ npm start               # http://localhost:4200
 | `npm run format`      | Prettier                                                     |
 
 > Na primeira execução do E2E, instale o navegador: `npx playwright install chromium`.
-
-## 🔍 Code review
-
-A modernização partiu de um code review completo da versão original: **19 apontamentos**
-(3 críticos), todos corrigidos. Detalhes, trechos de código e justificativas em
-[`docs/CODE_REVIEW.md`](docs/CODE_REVIEW.md).
-
----
 
 <div align="center">
 
