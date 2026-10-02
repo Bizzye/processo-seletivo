@@ -16,7 +16,7 @@ testes automatizados, CI/CD e hardening de segurança.
 
 ### 🔗 [processo-seletivo-bizarro.web.app](https://processo-seletivo-bizarro.web.app)
 
-<img src="docs/screenshots/desktop.png" alt="Banner da Black Friday com a contagem regressiva sobre a faixa amarela" width="900" />
+<img src="docs/screenshots/desktop.jpg" alt="Banner da Black Friday com a contagem regressiva sobre a faixa amarela" width="900" />
 
 </div>
 
@@ -50,15 +50,15 @@ funcionando em **qualquer tamanho de tela**.
     <th>Mobile (390px)</th>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/desktop.png" alt="Versão desktop" width="420" /></td>
-    <td><img src="docs/screenshots/tablet.png" alt="Versão tablet" width="220" /></td>
-    <td><img src="docs/screenshots/mobile.png" alt="Versão mobile" width="160" /></td>
+    <td><img src="docs/screenshots/desktop.jpg" alt="Versão desktop" width="420" /></td>
+    <td><img src="docs/screenshots/tablet.jpg" alt="Versão tablet" width="220" /></td>
+    <td><img src="docs/screenshots/mobile.jpg" alt="Versão mobile" width="160" /></td>
   </tr>
 </table>
 
 Quando a Black Friday termina com a página aberta, a contagem para e exibe **"Encerrada"**:
 
-<img src="docs/screenshots/encerrada.png" alt="Estado encerrado da contagem" width="540" />
+<img src="docs/screenshots/encerrada.jpg" alt="Estado encerrado da contagem" width="540" />
 
 > As imagens são geradas automaticamente com Playwright (`npm run screenshots`), com o relógio do
 > navegador congelado para que fiquem reproduzíveis.
@@ -67,10 +67,10 @@ Quando a Black Friday termina com a página aberta, a contagem para e exibe **"E
 
 | 2021 (versão original, em produção até a v2.0)                              | 2026 (v2.0)                                                             |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <img src="docs/screenshots/legado.png" alt="Versão original" width="420" /> | <img src="docs/screenshots/desktop.png" alt="Versão 2.0" width="420" /> |
+| <img src="docs/screenshots/legado.jpg" alt="Versão original" width="420" /> | <img src="docs/screenshots/desktop.jpg" alt="Versão 2.0" width="420" /> |
 | Data fixa em 26/11/2021: números sumiram após expirar                       | Data calculada: sempre conta para a **próxima** Black Friday            |
 | Rótulos desalinhados (`flex-direction: coluna`)                             | Layout com _container queries_, alinhado em qualquer largura            |
-| Angular 10 · 205 vulnerabilidades no `npm audit`                            | Angular 22 · 0 vulnerabilidades em produção                             |
+| Angular 10 · 205 vulnerabilidades no `npm audit`                            | Angular 22 · 0 vulnerabilidades no `npm audit`                          |
 | Sem testes funcionais, sem CI                                               | 29 testes unitários (100%) + 12 E2E · CI/CD com deploy automático       |
 
 ## ✨ Funcionalidades
@@ -80,7 +80,7 @@ Quando a Black Friday termina com a página aberta, a contagem para e exibe **"E
 - **Estado "Encerrada"** quando o prazo é atingido com a página aberta.
 - **Responsivo sem media queries:** tipografia em unidades `cqi`, escala junto com a arte.
 - **Acessível:** `role="timer"` com descrição por extenso ("Faltam 26 dias, 11 horas…"), `alt` descritivo e `h1` para leitores de tela.
-- **Leve:** ~37 kB (gzip) de JavaScript inicial, fontes locais, imagem com prioridade de carregamento.
+- **Leve:** ~37 kB (gzip) de JavaScript inicial, fontes locais e arte em AVIF (39 kB, −56% vs. JPEG) com preload e prioridade de carregamento.
 
 ## 🧰 Stack
 
@@ -165,7 +165,7 @@ flowchart LR
 - **HSTS**, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, COOP/CORP.
 - **Subresource Integrity** (SRI) nos bundles JS/CSS.
 - **Sem requisições a terceiros:** fontes servidas pelo próprio domínio.
-- **0 vulnerabilidades** nas dependências de produção (`npm audit --omit=dev`).
+- **0 vulnerabilidades** no `npm audit` (produção e desenvolvimento).
 - Workflow do GitHub Actions com `permissions` mínimas por job; deploy de preview bloqueado para PRs de forks.
 
 ## 💻 Como rodar

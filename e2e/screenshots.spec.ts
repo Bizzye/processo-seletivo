@@ -29,7 +29,7 @@ for (const tela of telas) {
       await expect(page.getByRole('timer')).toBeVisible();
       await page.evaluate(() => document.fonts.ready);
 
-      await page.screenshot({ path: `${PASTA}/${tela.nome}.png` });
+      await page.screenshot({ path: `${PASTA}/${tela.nome}.jpg`, quality: 85 });
     });
   });
 }
@@ -42,5 +42,7 @@ test('captura estado encerrado', async ({ page }) => {
   await expect(page.locator('.encerrada')).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
 
-  await page.locator('app-contagem-regressiva').screenshot({ path: `${PASTA}/encerrada.png` });
+  await page
+    .locator('app-contagem-regressiva')
+    .screenshot({ path: `${PASTA}/encerrada.jpg`, quality: 85 });
 });

@@ -59,7 +59,7 @@ if (restante < 0) {
 ```
 
 O template lia `tempo.dias`, `tempo.horas`… de uma string, então os números simplesmente sumiam
-(veja `docs/screenshots/legado.png`). O `any` escondeu o erro do compilador.
+(veja `docs/screenshots/legado.jpg`). O `any` escondeu o erro do compilador.
 
 **Correção:** modelo tipado `TempoRestante` com a flag `expirado`; o template usa `@if` para
 exibir "Encerrada". Tempo negativo nunca é exibido (`Math.max(…, 0)`).
@@ -127,10 +127,9 @@ Angular 10 está sem suporte desde 2022; TSLint foi descontinuado em 2019 e o Pr
 O `npm audit` do lockfile original apontava **205 vulnerabilidades (21 críticas, 97 altas)**.
 
 **Correção:** Angular 22 (standalone, zoneless, signals, novo control flow, builder esbuild),
-TypeScript 6, ESLint (`angular-eslint`) e Playwright. Resultado: **0 vulnerabilidades nas
-dependências de produção** (`npm audit --omit=dev`). Restam alertas apenas em dependências
-transitivas do `firebase-tools` (ferramenta de dev/CI, não vai para o bundle), acompanhadas pelo
-Dependabot.
+TypeScript 6, ESLint (`angular-eslint`) e Playwright. Resultado: **0 vulnerabilidades** no
+`npm audit`. O `firebase-tools` (usado só para o emulador local e no CI) roda via `npx` com versão
+fixa em vez de entrar no `package-lock.json`, o que também reduziu a árvore de dependências de 1335 para 750 pacotes.
 
 ### 10. Hosting sem headers de segurança
 
