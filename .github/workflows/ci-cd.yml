@@ -7,9 +7,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Em PRs, um push novo cancela a execução anterior; na main nunca interrompe um deploy em andamento.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -81,7 +82,18 @@ jobs:
         with:
           name: dist
           path: dist/
-      - run: npx playwright install --with-deps chromium
+      - name: Versão do Playwright
+        id: playwright
+        run: echo "versao=$(node -p "require('@playwright/test/package.json').version")" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v6
+        id: cache-playwright
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright.outputs.versao }}
+      - if: steps.cache-playwright.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+      - if: steps.cache-playwright.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
       - run: npx playwright test --project=desktop --project=mobile
       - uses: actions/upload-artifact@v7
         if: failure()
