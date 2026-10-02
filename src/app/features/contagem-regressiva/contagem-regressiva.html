@@ -1,0 +1,27 @@
+<section class="banner" aria-labelledby="titulo-banner">
+  <h1 id="titulo-banner" class="visualmente-oculto">Black Friday: contagem regressiva</h1>
+
+  <img
+    src="images/black-friday.jpeg"
+    width="1080"
+    height="720"
+    fetchpriority="high"
+    alt="Black Friday: mais pontos e mais descontos. Faltam:"
+  />
+
+  <div class="contagem" role="timer" [attr.aria-label]="descricaoAcessivel()">
+    @if (tempo().expirado) {
+      <p class="encerrada" aria-hidden="true">Encerrada</p>
+    } @else {
+      @for (unidade of unidades(); track unidade.rotulo; let ultima = $last) {
+        <div class="unidade" aria-hidden="true">
+          <span class="valor">{{ unidade.valor }}</span>
+          <span class="rotulo">{{ unidade.rotulo }}</span>
+        </div>
+        @if (!ultima) {
+          <span class="divisor" aria-hidden="true">.</span>
+        }
+      }
+    }
+  </div>
+</section>
