@@ -1,0 +1,72 @@
+// Todas as medidas da contagem são relativas à largura do banner (unidades `cqi`), então o
+// texto acompanha a faixa amarela da arte em qualquer tamanho de tela, sem media queries.
+
+:host {
+  display: block;
+}
+
+.banner {
+  position: relative;
+  container-type: inline-size;
+  inline-size: 100%;
+  max-inline-size: 1080px;
+  margin-inline: auto;
+  border-radius: 1.5cqi;
+  overflow: hidden;
+  box-shadow: 0 2cqi 6cqi rgb(0 0 0 / 45%);
+}
+
+img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+// Área sobre a faixa amarela da arte (proporções medidas na imagem original 1080x720).
+.contagem {
+  position: absolute;
+  inset-block-start: 76.5%;
+  inset-inline-start: 19.5%;
+  block-size: 13%;
+  inline-size: 37%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6cqi;
+  color: var(--cor-texto-faixa);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.unidade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-inline-size: 6.4cqi;
+}
+
+.valor {
+  font-size: 5.4cqi;
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+}
+
+.rotulo {
+  margin-block-start: 0.3cqi;
+  font-size: 1.05cqi;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.divisor {
+  align-self: flex-start;
+  margin-block-start: 1.6cqi;
+  font-size: 4cqi;
+}
+
+.encerrada {
+  margin: 0;
+  font-size: 4.2cqi;
+  font-style: italic;
+  text-transform: uppercase;
+}
