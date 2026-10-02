@@ -1,11 +1,5 @@
 {
-  "targets": {
-    "processo-seletivo-bizarro": {
-      "hosting": {
-        "processo-seletivo": [
-          "processo-seletivo-bizarro"
-        ]
-      }
-    }
+  "projects": {
+    "default": "processo-seletivo-bizarro"
   }
 }
